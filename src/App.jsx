@@ -6,7 +6,7 @@ import './App.css'
 import Navbar from './component/Navbar'
 
 // CounterContext
-import { CounterContext } from './context/CounterContext'
+import { CounterContextProvider } from './context/CounterContext'
 
 
 // Pages
@@ -15,7 +15,8 @@ import Contact from './pages/contact/Contact'
 import Products from './pages/products/Products'
 import SignIn from './pages/signin/SignIn'
 import SignUp from './pages/signup/SignUp'
-import Home from './pages/home/home'
+import Home from './pages/home/Home'
+import { TitleColorContextProvider } from './context/TitleColorContext'
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
     <>
      
       <BrowserRouter>
-        <CounterContext>
+        <CounterContextProvider>
+        <TitleColorContextProvider>
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -34,7 +36,8 @@ function App() {
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
         </Routes>
-        </CounterContext>
+        </TitleColorContextProvider>
+        </CounterContextProvider>
       </BrowserRouter>
       
     </>
